@@ -5,9 +5,8 @@
                 All Books
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Category</a>
+                <a href="" class="dropdown-item">By Category</a>
+                <a href="" class="dropdown-item ">By Author</a>
                 <a href="{% url 'books' %}" class="dropdown-item">All Books</a>
             </div>
         </li>
@@ -17,11 +16,11 @@
                 Fiction
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item ">Classic</a>
-                <a href="" class="dropdown-item">Crime</a>
-                <a href="" class="dropdown-item">Drama</a>
-                <a href="" class="dropdown-item">Horror</a>
-                <a href="" class="dropdown-item">Mystery</a>
+                <a href="{% url 'books' %}?category=classic" class="dropdown-item ">Classic</a>
+                <a href="{% url 'books' %}?category=crime" class="dropdown-item">Crime</a>
+                <a href="{% url 'books' %}?category=drama" class="dropdown-item">Drama</a>
+                <a href="{% url 'books' %}?category=horror" class="dropdown-item">Horror</a>
+                <a href="{% url 'books' %}?category=mystery" class="dropdown-item">Mystery</a>
             </div>
         </li>
 
@@ -30,12 +29,12 @@
                 Nonfiction
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">Biography</a>
-                <a href="" class="dropdown-item">Encyclopedia</a>
-                <a href="" class="dropdown-item">History</a>
-                <a href="" class="dropdown-item">Philosophy</a>
-                <a href="" class="dropdown-item">Science</a>
-                <a href="" class="dropdown-item">Travel</a>
+                <a href="{% url 'books' %}?category=biography" class="dropdown-item">Biography</a>
+                <a href="{% url 'books' %}?category=encyclopedia" class="dropdown-item">Encyclopedia</a>
+                <a href="{% url 'books' %}?category=history" class="dropdown-item">History</a>
+                <a href="{% url 'books' %}?category=philosophy" class="dropdown-item">Philosophy</a>
+                <a href="{% url 'books' %}?category=science" class="dropdown-item">Science</a>
+                <a href="{% url 'books' %}?category=travel" class="dropdown-item">Travel</a>
             </div>
         </li>
     </ul>
