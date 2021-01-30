@@ -66,9 +66,19 @@ body {
     z-index: -1;
 }
 
+.card  {
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.card-img-top {
+    width:  15rem;
+    height: 20rem;
+    object-fit: cover;
+}
 /* -------------------------------- Media Queries */
 
-/* Slightly larger container on xl screens */
+/* for large screens */
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
@@ -89,3 +99,13 @@ body {
     }
 }
 
+/* navbar padding on mobile view */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+}
