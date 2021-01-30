@@ -66,15 +66,13 @@ body {
     z-index: -1;
 }
 
-.card  {
-    padding: 2rem;
-    margin: 2rem;
-}
-
-.card-img-top {
-    width:  15rem;
+.small-img {
     height: 20rem;
     object-fit: cover;
+}
+
+.one-product {
+    margin: 2rem;
 }
 /* -------------------------------- Media Queries */
 
