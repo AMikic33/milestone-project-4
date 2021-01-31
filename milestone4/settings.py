@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -115,13 +116,16 @@ WSGI_APPLICATION = 'milestone4.wsgi.application'
 
 # Database
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#       'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
+DATABASES = {
+    'default': dj_database_url.parse('postgres://gdarhkvjdplhqh:590c3e7b30abb7afb9c27cc13f4ebcbc00f969abf930120f1bbc8824a480ee0b@ec2-54-75-199-252.eu-west-1.compute.amazonaws.com:5432/d8baiukvoc8v9p')
+}
 
 # Password validation
 
