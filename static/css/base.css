@@ -84,6 +84,10 @@ body {
     object-fit: cover;
 }
 
+.xs-img {
+    height: 5rem;
+}
+
 .one-product {
     margin: 2rem;
 }
