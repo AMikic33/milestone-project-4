@@ -25,7 +25,7 @@
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img small-img top-fluid" src="../media/noimage.jpeg" alt="{{ product.name }}">
+                                    <img class="card-img small-img top-fluid" src="{{ MEDIA_URL }}noimage.jpeg" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
