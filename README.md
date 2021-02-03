@@ -79,7 +79,7 @@ This project was deployed to Heroku at the address https://milestone-project-4-a
 
 ## Credits
 
-##### Content
+#### Content
 
 - cover photo: https://drama.uktv.co.uk/period-drama/article/20-classic-books-you-have-read-you-die/
 - noimage.jpeg: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.entrepreneur.com%2Fslideshow%2F343776&psig=AOvVaw1ubV-AaVisynkwWTVqMj4Y&ust=1612125237545000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj7jOXAxO4CFQAAAAAdAAAAABAL
@@ -97,3 +97,10 @@ This project was deployed to Heroku at the address https://milestone-project-4-a
 - Book description and photo : "Into the Wild": https://en.wikipedia.org/wiki/Into_the_Wild_(book)
 
 - relying on the lessons from the mini project Boutique-Ado and using the code from the lessons. 
+
+
+#### Acknowledgements
+
+- I would like to acknowledge my mentor Reuben Ferrante, for all the help and support on this project.
+- I would like to thank the tutors for all of their help and support.
+- I would also like to thank my friends and family for all of their support.
