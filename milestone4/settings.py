@@ -25,7 +25,7 @@ SECRET_KEY = '*tq5fz!(=fdjn733xmrvle%+l$5&7=63lljtv=i0@)%y!&=3q5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['milestone-project-4-ana.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -115,17 +115,17 @@ WSGI_APPLICATION = 'milestone4.wsgi.application'
 
 
 # Database
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
-DATABASES = {
-    'default': dj_database_url.parse('postgres://gdarhkvjdplhqh:590c3e7b30abb7afb9c27cc13f4ebcbc00f969abf930120f1bbc8824a480ee0b@ec2-54-75-199-252.eu-west-1.compute.amazonaws.com:5432/d8baiukvoc8v9p')
-}
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 

@@ -1,0 +1,15 @@
+Hello {{ order.full_name }},
+
+Thank you for placing your order with Bookworm.
+
+Please find your order details below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.order_date }}
+Order Total: {{ order.grand_total }}
+
+Your order will be delivered to:
+{{ order.street_address }}
+{{ order.town_or_city }}, {{ order.postcode }}
+{{ order.country }}
+
