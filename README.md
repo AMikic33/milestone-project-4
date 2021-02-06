@@ -53,7 +53,6 @@ Please see the wireframes.md file for the entire collection of wireframes:
 - Postgres - This Relational Datatabase was used to handle the data storage
 
 
-## Testing
 
 ## Deployment
 
