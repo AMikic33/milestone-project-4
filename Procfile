@@ -1,1 +1,1 @@
-web: gunicorn milestone-project-4.wsgi:application
+web: gunicorn milestone4.wsgi:application
