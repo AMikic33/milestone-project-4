@@ -71,6 +71,9 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
 
-        if not self.order_number:
-            self.line_item = self.product.price * self.quantity
+        self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'SKU {self.product.sku} on order {self.order.order_number}'
+
