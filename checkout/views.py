@@ -3,6 +3,9 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from books.models import Product
@@ -85,7 +88,28 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address': profile.default_street_address,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -118,10 +142,27 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-        else:
-            order_form = OrderForm()
 
     messages.success(request, f'Order successfully processed! Email confirmation with your order number will be sent to {order.email}.')
+
+    def _send_confirmation_email(self, order):
+        """ Send confirmation email """
+        cust_email = order.email
+            subject = render_to_string(
+                'checkout/confirmation_emails/confirmation_emails_subject.txt',
+                {'order': order})
+
+            body = render_to_string(
+                'checkout/confirmation_emails/confirmation_emails_body.txt',
+                {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [cust_email]
+        )
+
 
     if 'bag' in request.session:
         del request.session['bag']
