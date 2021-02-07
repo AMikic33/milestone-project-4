@@ -49,7 +49,7 @@ https://github.com/AMikic33/milestone-project-4/tree/master/static/wireframes
 ##### Staff users
 
 - Create data - Staff users can add new products to the database using a simple form.
-- Eidt data - Staff users can edit existing products to the database using a simple form.
+- Edit data - Staff users can edit existing products to the database using a simple form.
 - Delete data - Staff users can delete existing products by simply klicking delete button.
 
 #### Features left to be implemented
@@ -82,9 +82,9 @@ Please use the login below on the following link:
 
 https://milestone-project-4-ana.herokuapp.com/admin/login/?next=/admin/
 
-username: testname
-email: test@test.com
-password: testytest
+- username: testname
+- email: test@test.com
+- password: testytest
 
 
 #### Bugs found
