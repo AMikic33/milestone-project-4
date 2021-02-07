@@ -28,8 +28,8 @@ body {
     width: fit-content;
 }
 
-.product-container {
-    padding-top: 2.5rem;
+.fixed-top {
+    padding-bottom: 2.5rem;
 }
 
 .visit-store-button {
