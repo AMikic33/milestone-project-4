@@ -40,9 +40,22 @@ https://github.com/AMikic33/milestone-project-4/tree/master/static/wireframes
 - Sign-Up - New users can sign up themselves if they wish to set up an account.
 - User Profile - Each user has their own profile.
 - Users can view their order history from their profile
+- Users can log out at any time from the store by clicking on the logout button
+- Users can add items to the cart while browsing the store, from there they can remove the items or 
+    checkout using the Stripe payment management system securely and easily
+- Users can search on the products page for items based on name so that they can narrow down their options
+- Users can choose their country from a pick list to avoid spelling errors
+
+##### Staff users
+
+- Create data - Staff users can add new products to the database using a simple form.
+- Eidt data - Staff users can edit existing products to the database using a simple form.
+- Delete data - Staff users can delete existing products by simply klicking delete button.
 
 #### Features left to be implemented
 
+- Users will be able to create a wishlist which will notify them if the wished product is in the store
+- Product reviews will be created
 
 
 ## Technologies used
@@ -59,6 +72,27 @@ https://github.com/AMikic33/milestone-project-4/tree/master/static/wireframes
 - Amazon AWS - S3 Buckets were set up and used for storing website images and files
 - Postgres - This Relational Datatabase was used to handle the data storage
 
+
+## Testing
+
+##### User Credentials
+
+There are two main uses on this site; a site member and a site staff member. 
+Please use the login below on the following link:
+
+https://milestone-project-4-ana.herokuapp.com/admin/login/?next=/admin/
+
+username: testname
+email: test@test.com
+password: testytest
+
+
+#### Bugs found
+
+- user is able to insert their details when registering, but the email verification does not get sent 
+- user is able to insert their username and password to login, but the login is not possible due to the lack of the verifcation email
+- user is not able to open orders in profile/ order history
+- success and error pop-up messages can not be closed
 
 
 ## Deployment
@@ -108,5 +142,6 @@ This project was deployed to Heroku at the address https://milestone-project-4-a
 #### Acknowledgements
 
 - I would like to acknowledge my mentor Reuben Ferrante, for all the help and support on this project.
-- I would like to thank the tutors for all of their help and support.
+- I would like to thank the Code Insitute Tutor's for all of their help. 
+    In particular, Scott and Igor, who have been a massive help.
 - I would also like to thank my friends and family for all of their support.
