@@ -2,6 +2,8 @@
 
 Bookworm is an online book store where users can look for books based on the book genre. 
 
+Deployed at: https://milestone-project-4-ana.herokuapp.com/
+
 ## UX
 
 The store is designed to enable users to register, login and logout for data protection services. 
@@ -28,11 +30,16 @@ As there are many pages to this project, I have included the wireframes in a sep
 
 Please see the wireframes.md file for the entire collection of wireframes:
 
-
+https://github.com/AMikic33/milestone-project-4/tree/master/static/wireframes
 
 ## Features
 
 #### Existing Features
+
+- Login - The customers are able to create their own accounts and log into the website with secure details.
+- Sign-Up - New users can sign up themselves if they wish to set up an account.
+- User Profile - Each user has their own profile.
+- Users can view their order history from their profile
 
 #### Features left to be implemented
 
