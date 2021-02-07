@@ -3,9 +3,6 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from books.models import Product
@@ -70,6 +67,7 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save_info' in request.POST
+            order.send_confirmation_email()
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form, please check your details information.')
@@ -144,25 +142,6 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
 
     messages.success(request, f'Order successfully processed! Email confirmation with your order number will be sent to {order.email}.')
-
-    def _send_confirmation_email(self, order):
-        """ Send confirmation email """
-        cust_email = order.email
-            subject = render_to_string(
-                'checkout/confirmation_emails/confirmation_emails_subject.txt',
-                {'order': order})
-
-            body = render_to_string(
-                'checkout/confirmation_emails/confirmation_emails_body.txt',
-                {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-
-            send_mail(
-                subject,
-                body,
-                settings.DEFAULT_FROM_EMAIL,
-                [cust_email]
-        )
-
 
     if 'bag' in request.session:
         del request.session['bag']

@@ -4,6 +4,9 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 from django_countries.fields import CountryField
 
 from books.models import Product
@@ -39,6 +42,25 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
+
+    def send_confirmation_email(self):
+        """ Send confirmation email """
+        cust_email = self.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_emails_subject.txt',
+            {'order': self})
+
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_emails_body.txt',
+            {'order': self, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
+
 
 
 class OrderLineItem(models.Model):
