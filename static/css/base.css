@@ -8,6 +8,7 @@ body {
     height: calc(100vh - 164px);
     font-family: 'Open Sans', sans-serif;
     color: #000;
+    padding-top: 160px;
 }
 
 .icon {
